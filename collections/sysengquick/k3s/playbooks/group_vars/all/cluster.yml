@@ -1,0 +1,33 @@
+---
+# cluster nodes
+cluster_nodes:
+  servers:
+    - name: s1.k3s.local.technoplaza.net
+      ip: 192.168.1.51
+    - name: s2.k3s.local.technoplaza.net
+      ip: 192.168.1.52
+    - name: s3.k3s.local.technoplaza.net
+      ip: 192.168.1.53
+  workers:
+    - name: w1.k3s.local.technoplaza.net
+      ip: 192.168.1.54
+    - name: w2.k3s.local.technoplaza.net
+      ip: 192.168.1.55
+
+# ssh user on k3s nodes with passwordless sudo
+node_ssh_user: pve
+
+#
+# These values don't matter if you aren't using proxmox
+#
+
+# k3s cluster network configuration
+proxmox_network:
+  cidr: 24
+  gateway: 192.168.1.1
+
+# proxmox server hostname/IP
+proxmox_server: pve.local.technoplaza.net
+
+# ssh user with sudo on proxmox
+proxmox_ssh_user: ansible

@@ -1,0 +1,41 @@
+---
+- name: Deploy k3s
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Deploy k3s
+      ansible.builtin.include_role:
+        name: sysengquick.k3s.k3sup
+        tasks_from: deploy_cluster
+
+- name: Setup kube-vip
+  hosts: "{{ hostvars['localhost']['cluster_nodes']['servers'][0]['name'] }}"
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Setup kube-vip
+      ansible.builtin.include_role:
+        name: sysengquick.k3s.k3sup
+        tasks_from: setup_kube_vip
+
+    - name: Setup kube-vip cloud controller
+      ansible.builtin.include_role:
+        name: sysengquick.k3s.k3sup
+        tasks_from: setup_kube_vip_cloud_controller
+
+- name: Add additional nodes to k3s cluster
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Add additional servers to cluster
+      ansible.builtin.include_role:
+        name: sysengquick.k3s.k3sup
+        tasks_from: add_servers
+
+    - name: Add workers to cluster
+      ansible.builtin.include_role:
+        name: sysengquick.k3s.k3sup
+        tasks_from: add_workers

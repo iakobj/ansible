@@ -1,0 +1,44 @@
+{
+  "name": "sysengquick-k3s",
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "k3s",
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": ".devcontainer/postCreateCommand.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bierner.markdown-preview-github-styles",
+        "DavidAnson.vscode-markdownlint",
+        "dhoeric.ansible-vault",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "oderwat.indent-rainbow",
+        "redhat.ansible",
+        "tamasfe.even-better-toml",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[jsonc]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "ansible.python.interpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true,
+        "files.associations": {
+          "*.yml": "ansible"
+        },
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true
+      }
+    }
+  }
+}

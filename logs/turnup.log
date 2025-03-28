@@ -1,0 +1,1088 @@
++ ansible-playbook sysengquick.k3s.create_cluster
+
+PLAY [Create proxmox template] *************************************************
+
+TASK [Create proxmox template] *************************************************
+
+TASK [sysengquick.k3s.proxmox : Test sudo access] ******************************
+skipping: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Create template VM] ****************************
+changed: [pve.local.technoplaza.net -> localhost]
+
+TASK [sysengquick.k3s.proxmox : Download cloud image] **************************
+changed: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Get disk imfo] *********************************
+ok: [pve.local.technoplaza.net -> localhost]
+
+TASK [sysengquick.k3s.proxmox : Register template_attach_disk] *****************
+ok: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Get disk info] *********************************
+ok: [pve.local.technoplaza.net -> localhost]
+
+TASK [sysengquick.k3s.proxmox : Register disk status] **************************
+ok: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Create disk from cloud image] ******************
+changed: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Create disk from cloud image] ******************
+skipping: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Attach disk] ***********************************
+changed: [pve.local.technoplaza.net -> localhost]
+
+TASK [sysengquick.k3s.proxmox : Remove cloud image download] *******************
+skipping: [pve.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Ensure disk size] ******************************
+changed: [pve.local.technoplaza.net -> localhost]
+
+TASK [sysengquick.k3s.proxmox : Update disk properties] ************************
+changed: [pve.local.technoplaza.net -> localhost]
+
+TASK [sysengquick.k3s.proxmox : Make the VM a template] ************************
+changed: [pve.local.technoplaza.net -> localhost]
+
+PLAY [Create proxmox nodes] ****************************************************
+
+TASK [Create proxmox nodes] ****************************************************
+
+TASK [sysengquick.k3s.proxmox : Run tasks on all k3s nodes] ********************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/create_node.yml for localhost => (item={'name': 's1.k3s.local.technoplaza.net', 'ip': '192.168.1.51'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/create_node.yml for localhost => (item={'name': 's2.k3s.local.technoplaza.net', 'ip': '192.168.1.52'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/create_node.yml for localhost => (item={'name': 's3.k3s.local.technoplaza.net', 'ip': '192.168.1.53'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/create_node.yml for localhost => (item={'name': 'w1.k3s.local.technoplaza.net', 'ip': '192.168.1.54'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/create_node.yml for localhost => (item={'name': 'w2.k3s.local.technoplaza.net', 'ip': '192.168.1.55'})
+
+TASK [sysengquick.k3s.proxmox : Create k3s node from template] *****************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Register vmid] *********************************
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Update IP configuration] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/start_node.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Assert variable definitions] *******************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox] *****************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/pause_for_proxmox.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox to catch up] *****************
+Pausing for 15 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Create k3s node from template] *****************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Register vmid] *********************************
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Update IP configuration] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/start_node.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Assert variable definitions] *******************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox] *****************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/pause_for_proxmox.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox to catch up] *****************
+Pausing for 15 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Create k3s node from template] *****************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Register vmid] *********************************
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Update IP configuration] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/start_node.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Assert variable definitions] *******************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox] *****************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/pause_for_proxmox.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox to catch up] *****************
+Pausing for 15 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Create k3s node from template] *****************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Register vmid] *********************************
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Update IP configuration] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/start_node.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Assert variable definitions] *******************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox] *****************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/pause_for_proxmox.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox to catch up] *****************
+Pausing for 15 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Create k3s node from template] *****************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Register vmid] *********************************
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Update IP configuration] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/start_node.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Assert variable definitions] *******************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox] *****************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/pause_for_proxmox.yml for localhost
+
+TASK [sysengquick.k3s.proxmox : Pause for proxmox to catch up] *****************
+Pausing for 15 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Start node] ************************************
+changed: [localhost]
+
+PLAY [Prep nodes] **************************************************************
+
+TASK [Prep nodes] **************************************************************
+
+TASK [sysengquick.k3s.proxmox : Wait for server to startup] ********************
+ok: [s2.k3s.local.technoplaza.net]
+ok: [w1.k3s.local.technoplaza.net]
+ok: [s1.k3s.local.technoplaza.net]
+ok: [s3.k3s.local.technoplaza.net]
+ok: [w2.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Install packages] ******************************
+FAILED - RETRYING: [w2.k3s.local.technoplaza.net]: Install packages (3 retries left).
+changed: [s3.k3s.local.technoplaza.net]
+changed: [s1.k3s.local.technoplaza.net]
+changed: [s2.k3s.local.technoplaza.net]
+changed: [w1.k3s.local.technoplaza.net]
+changed: [w2.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Start qemu-guest-agent] ************************
+changed: [w1.k3s.local.technoplaza.net]
+changed: [s3.k3s.local.technoplaza.net]
+changed: [s1.k3s.local.technoplaza.net]
+changed: [s2.k3s.local.technoplaza.net]
+changed: [w2.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Load installed packages] ***********************
+ok: [s2.k3s.local.technoplaza.net]
+ok: [w1.k3s.local.technoplaza.net]
+ok: [s3.k3s.local.technoplaza.net]
+ok: [w2.k3s.local.technoplaza.net]
+ok: [s1.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.proxmox : Stop and disable ufw] **************************
+skipping: [s1.k3s.local.technoplaza.net]
+skipping: [s2.k3s.local.technoplaza.net]
+skipping: [s3.k3s.local.technoplaza.net]
+skipping: [w1.k3s.local.technoplaza.net]
+skipping: [w2.k3s.local.technoplaza.net]
+
+PLAY [Snapshot cluster] ********************************************************
+
+TASK [Snapshot all k3s nodes] **************************************************
+
+TASK [sysengquick.k3s.proxmox : Run tasks on all k3s nodes] ********************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/snapshot.yml for localhost => (item={'name': 's1.k3s.local.technoplaza.net', 'ip': '192.168.1.51'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/snapshot.yml for localhost => (item={'name': 's2.k3s.local.technoplaza.net', 'ip': '192.168.1.52'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/snapshot.yml for localhost => (item={'name': 's3.k3s.local.technoplaza.net', 'ip': '192.168.1.53'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/snapshot.yml for localhost => (item={'name': 'w1.k3s.local.technoplaza.net', 'ip': '192.168.1.54'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/proxmox/tasks/snapshot.yml for localhost => (item={'name': 'w2.k3s.local.technoplaza.net', 'ip': '192.168.1.55'})
+
+TASK [sysengquick.k3s.proxmox : Check proxmox_snapshot variable] ***************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Proxmox snapshot] ******************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Check proxmox_snapshot variable] ***************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Proxmox snapshot] ******************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Check proxmox_snapshot variable] ***************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Proxmox snapshot] ******************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Check proxmox_snapshot variable] ***************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Proxmox snapshot] ******************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.proxmox : Check proxmox_snapshot variable] ***************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [sysengquick.k3s.proxmox : Proxmox snapshot] ******************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=60   changed=20   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+pve.local.technoplaza.net  : ok=11   changed=7    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+s1.k3s.local.technoplaza.net : ok=4    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+s2.k3s.local.technoplaza.net : ok=4    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+s3.k3s.local.technoplaza.net : ok=4    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+w1.k3s.local.technoplaza.net : ok=4    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+w2.k3s.local.technoplaza.net : ok=4    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+
+real	2m59.554s
+user	0m29.133s
+sys	0m6.359s
++ ansible-playbook sysengquick.k3s.deploy_k3s
+
+PLAY [Deploy k3s] **************************************************************
+
+TASK [Deploy k3s] **************************************************************
+
+TASK [sysengquick.k3s.k3sup : Deploy cluster] **********************************
+changed: [localhost]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/k3sup",
+            "install",
+            "--cluster",
+            "--context",
+            "k3s-ha",
+            "--ip",
+            "192.168.1.51",
+            "--k3s-extra-args",
+            "--disable servicelb",
+            "--k3s-version",
+            "v1.27.11+k3s1",
+            "--local-path",
+            "/home/vscode/.kube/config",
+            "--ssh-key",
+            "/home/vscode/.ssh/id_ed25519",
+            "--tls-san",
+            "192.168.1.50",
+            "--user",
+            "pve"
+        ],
+        "stdout": [
+            "Running: k3sup install",
+            "Public IP: 192.168.1.51",
+            "[INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service",
+            "[INFO]  systemd: Enabling k3s unit",
+            "[INFO]  systemd: Starting k3s",
+            "Result: [INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service",
+            "[INFO]  systemd: Enabling k3s unit",
+            "[INFO]  systemd: Starting k3s",
+            " Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.",
+            "",
+            "Saving file to: /home/vscode/.kube/config",
+            "",
+            "# Test your cluster with:",
+            "export KUBECONFIG=/home/vscode/.kube/config",
+            "kubectl config use-context k3s-ha",
+            "kubectl get node -o wide",
+            "",
+            "🚀 Speed up GitHub Actions/GitLab CI + reduce costs: https://actuated.dev"
+        ]
+    }
+}
+
+PLAY [Setup kube-vip] **********************************************************
+
+TASK [Setup kube-vip] **********************************************************
+
+TASK [sysengquick.k3s.k3sup : Include kube_vip tasks] **************************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/k3sup/tasks/setup_kube_vip_tasks.yml for s1.k3s.local.technoplaza.net
+
+TASK [sysengquick.k3s.k3sup : Apply kube-vip RBAC manifest] ********************
+changed: [s1.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [s1.k3s.local.technoplaza.net] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/kubectl",
+            "apply",
+            "-f",
+            "https://kube-vip.io/manifests/rbac.yaml"
+        ],
+        "stdout": [
+            "serviceaccount/kube-vip created",
+            "clusterrole.rbac.authorization.k8s.io/system:kube-vip-role created",
+            "clusterrolebinding.rbac.authorization.k8s.io/system:kube-vip-binding created"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.k3sup : Fetch kube-vip container image] ******************
+changed: [s1.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [s1.k3s.local.technoplaza.net] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/ctr",
+            "image",
+            "pull",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1"
+        ],
+        "stdout": [
+            "ghcr.io/kube-vip/kube-vip:v0.7.1: resolving      |\u001b[32m\u001b[0m--------------------------------------| ",
+            "elapsed: 0.1 s                    total:   0.0 B (0.0 B/s)                                         ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1: resolving      |\u001b[32m\u001b[0m--------------------------------------| ",
+            "elapsed: 0.2 s                    total:   0.0 B (0.0 B/s)                                         ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                              resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016: waiting        |\u001b[32m\u001b[0m--------------------------------------| ",
+            "elapsed: 0.3 s                                                                 total:   0.0 B (0.0 B/s)                                         ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                              resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016: downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/3.8 KiB ",
+            "elapsed: 0.4 s                                                                 total:   0.0 B (0.0 B/s)                                         ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                              resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016: downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/3.8 KiB ",
+            "elapsed: 0.5 s                                                                 total:   0.0 B (0.0 B/s)                                         ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                              resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016: downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/3.8 KiB ",
+            "elapsed: 0.6 s                                                                 total:   0.0 B (0.0 B/s)                                         ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                                 resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "manifest-sha256:58ce44dc60694b0aa547d87d4a8337133961d3a8538021a672ba9bd33b267c9a: downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/672.0 B ",
+            "elapsed: 0.7 s                                                                    total:  3.8 Ki (5.4 KiB/s)                                       ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                                 resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "manifest-sha256:58ce44dc60694b0aa547d87d4a8337133961d3a8538021a672ba9bd33b267c9a: done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "config-sha256:22aaebb38f4a9f54562fab7b3a59b206e32f59a368c5749c96d06f5a1c187dba:   downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/875.0 B   ",
+            "layer-sha256:a220db869ed1ac1f9b2c0609be138bed84b2ed0e7a94d10cd3a05e8eaefc0a52:    downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/14.8 MiB  ",
+            "layer-sha256:d058a25998cd9089af4fa61a2abeb7d820cd93ecc3edaf215c0f9b7291600077:    downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/120.7 KiB ",
+            "elapsed: 0.8 s                                                                    total:  4.5 Ki (5.6 KiB/s)                                       ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                                 resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "manifest-sha256:58ce44dc60694b0aa547d87d4a8337133961d3a8538021a672ba9bd33b267c9a: done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "config-sha256:22aaebb38f4a9f54562fab7b3a59b206e32f59a368c5749c96d06f5a1c187dba:   downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/875.0 B   ",
+            "layer-sha256:a220db869ed1ac1f9b2c0609be138bed84b2ed0e7a94d10cd3a05e8eaefc0a52:    downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/14.8 MiB  ",
+            "layer-sha256:d058a25998cd9089af4fa61a2abeb7d820cd93ecc3edaf215c0f9b7291600077:    downloading    |\u001b[32m\u001b[0m--------------------------------------|    0.0 B/120.7 KiB ",
+            "elapsed: 0.9 s                                                                    total:  4.5 Ki (4.9 KiB/s)                                       ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                                 resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "manifest-sha256:58ce44dc60694b0aa547d87d4a8337133961d3a8538021a672ba9bd33b267c9a: done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "config-sha256:22aaebb38f4a9f54562fab7b3a59b206e32f59a368c5749c96d06f5a1c187dba:   done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "layer-sha256:a220db869ed1ac1f9b2c0609be138bed84b2ed0e7a94d10cd3a05e8eaefc0a52:    downloading    |\u001b[32m+++++++\u001b[0m-------------------------------|  3.0 MiB/14.8 MiB ",
+            "layer-sha256:d058a25998cd9089af4fa61a2abeb7d820cd93ecc3edaf215c0f9b7291600077:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "elapsed: 1.0 s                                                                    total:  3.1 Mi (3.1 MiB/s)                                       ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                                 resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "manifest-sha256:58ce44dc60694b0aa547d87d4a8337133961d3a8538021a672ba9bd33b267c9a: done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "config-sha256:22aaebb38f4a9f54562fab7b3a59b206e32f59a368c5749c96d06f5a1c187dba:   done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "layer-sha256:a220db869ed1ac1f9b2c0609be138bed84b2ed0e7a94d10cd3a05e8eaefc0a52:    downloading    |\u001b[32m+++++++++++++++++++++++++++++++++++\u001b[0m---| 14.0 MiB/14.8 MiB ",
+            "layer-sha256:d058a25998cd9089af4fa61a2abeb7d820cd93ecc3edaf215c0f9b7291600077:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "elapsed: 1.1 s                                                                    total:  14.1 M (12.8 MiB/s)                                      ",
+            "ghcr.io/kube-vip/kube-vip:v0.7.1:                                                 resolved       |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "index-sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "manifest-sha256:58ce44dc60694b0aa547d87d4a8337133961d3a8538021a672ba9bd33b267c9a: done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "config-sha256:22aaebb38f4a9f54562fab7b3a59b206e32f59a368c5749c96d06f5a1c187dba:   done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "layer-sha256:a220db869ed1ac1f9b2c0609be138bed84b2ed0e7a94d10cd3a05e8eaefc0a52:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "layer-sha256:d058a25998cd9089af4fa61a2abeb7d820cd93ecc3edaf215c0f9b7291600077:    done           |\u001b[32m++++++++++++++++++++++++++++++++++++++\u001b[0m| ",
+            "elapsed: 1.2 s                                                                    total:  14.1 M (11.8 MiB/s)                                      ",
+            "unpacking linux/amd64 sha256:82698885b3b5f926cd940b7000549f3d43850cb6565a708162900c1475a83016...",
+            "done: 269.593652ms\t"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.k3sup : Apply kube-vip daemonset manifest] ***************
+changed: [s1.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [s1.k3s.local.technoplaza.net] => {
+    "msg": {
+        "cmd": "set -o pipefail && /usr/local/bin/ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:v0.7.1 vip /kube-vip manifest daemonset --address 192.168.1.50 --arp --controlplane --inCluster --interface eth0 --leaderElection --leaseDuration 30 --leaseRenewDuration 10 --leaseRetry 3 --services --taint | tee /var/lib/rancher/k3s/server/manifests/kube-vip.yaml",
+        "stdout": [
+            "apiVersion: apps/v1",
+            "kind: DaemonSet",
+            "metadata:",
+            "  creationTimestamp: null",
+            "  labels:",
+            "    app.kubernetes.io/name: kube-vip-ds",
+            "    app.kubernetes.io/version: v0.7.1",
+            "  name: kube-vip-ds",
+            "  namespace: kube-system",
+            "spec:",
+            "  selector:",
+            "    matchLabels:",
+            "      app.kubernetes.io/name: kube-vip-ds",
+            "  template:",
+            "    metadata:",
+            "      creationTimestamp: null",
+            "      labels:",
+            "        app.kubernetes.io/name: kube-vip-ds",
+            "        app.kubernetes.io/version: v0.7.1",
+            "    spec:",
+            "      affinity:",
+            "        nodeAffinity:",
+            "          requiredDuringSchedulingIgnoredDuringExecution:",
+            "            nodeSelectorTerms:",
+            "            - matchExpressions:",
+            "              - key: node-role.kubernetes.io/master",
+            "                operator: Exists",
+            "            - matchExpressions:",
+            "              - key: node-role.kubernetes.io/control-plane",
+            "                operator: Exists",
+            "      containers:",
+            "      - args:",
+            "        - manager",
+            "        env:",
+            "        - name: vip_arp",
+            "          value: \"true\"",
+            "        - name: port",
+            "          value: \"6443\"",
+            "        - name: vip_interface",
+            "          value: eth0",
+            "        - name: vip_cidr",
+            "          value: \"32\"",
+            "        - name: dns_mode",
+            "          value: first",
+            "        - name: cp_enable",
+            "          value: \"true\"",
+            "        - name: cp_namespace",
+            "          value: kube-system",
+            "        - name: svc_enable",
+            "          value: \"true\"",
+            "        - name: svc_leasename",
+            "          value: plndr-svcs-lock",
+            "        - name: vip_leaderelection",
+            "          value: \"true\"",
+            "        - name: vip_leasename",
+            "          value: plndr-cp-lock",
+            "        - name: vip_leaseduration",
+            "          value: \"30\"",
+            "        - name: vip_renewdeadline",
+            "          value: \"10\"",
+            "        - name: vip_retryperiod",
+            "          value: \"3\"",
+            "        - name: address",
+            "          value: 192.168.1.50",
+            "        - name: prometheus_server",
+            "          value: :2112",
+            "        image: ghcr.io/kube-vip/kube-vip:v0.7.1",
+            "        imagePullPolicy: Always",
+            "        name: kube-vip",
+            "        resources: {}",
+            "        securityContext:",
+            "          capabilities:",
+            "            add:",
+            "            - NET_ADMIN",
+            "            - NET_RAW",
+            "      hostNetwork: true",
+            "      serviceAccountName: kube-vip",
+            "      tolerations:",
+            "      - effect: NoSchedule",
+            "        operator: Exists",
+            "      - effect: NoExecute",
+            "        operator: Exists",
+            "  updateStrategy: {}",
+            "status:",
+            "  currentNumberScheduled: 0",
+            "  desiredNumberScheduled: 0",
+            "  numberMisscheduled: 0",
+            "  numberReady: 0"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.k3sup : Update kubectl config] ***************************
+changed: [s1.k3s.local.technoplaza.net -> localhost]
+
+TASK [Setup kube-vip cloud controller] *****************************************
+
+TASK [sysengquick.k3s.k3sup : Include setup_kube_vip_cloud_controller_tasks] ***
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/k3sup/tasks/setup_kube_vip_cloud_controller_tasks.yml for s1.k3s.local.technoplaza.net
+
+TASK [sysengquick.k3s.k3sup : Apply kube-vip cloud controller manifest] ********
+changed: [s1.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [s1.k3s.local.technoplaza.net] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/kubectl",
+            "apply",
+            "-f",
+            "https://raw.githubusercontent.com/kube-vip/kube-vip-cloud-provider/main/manifest/kube-vip-cloud-controller.yaml"
+        ],
+        "stdout": [
+            "serviceaccount/kube-vip-cloud-controller created",
+            "clusterrole.rbac.authorization.k8s.io/system:kube-vip-cloud-controller-role created",
+            "clusterrolebinding.rbac.authorization.k8s.io/system:kube-vip-cloud-controller-binding created",
+            "deployment.apps/kube-vip-cloud-provider created"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.k3sup : Apply IP Range to cloud controller] **************
+changed: [s1.k3s.local.technoplaza.net]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [s1.k3s.local.technoplaza.net] => {
+    "msg": {
+        "cmd": "set -o pipefail && /usr/local/bin/kubectl create configmap -n kube-system kubevip -o yaml --dry-run=client --from-literal range-global=192.168.1.60-192.168.1.69 | /usr/local/bin/kubectl apply -f -",
+        "stdout": [
+            "configmap/kubevip created"
+        ]
+    }
+}
+
+PLAY [Add additional nodes to k3s cluster] *************************************
+
+TASK [Add additional servers to cluster] ***************************************
+
+TASK [sysengquick.k3s.k3sup : Add servers to k3s cluster] **********************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/k3sup/tasks/add_servers_loop.yml for localhost => (item={'name': 's2.k3s.local.technoplaza.net', 'ip': '192.168.1.52'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/k3sup/tasks/add_servers_loop.yml for localhost => (item={'name': 's3.k3s.local.technoplaza.net', 'ip': '192.168.1.53'})
+
+TASK [sysengquick.k3s.k3sup : Add server to k3s cluster] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/k3sup",
+            "join",
+            "--ip",
+            "192.168.1.52",
+            "--k3s-extra-args",
+            "--disable servicelb",
+            "--k3s-version",
+            "v1.27.11+k3s1",
+            "--server",
+            "--server-ip",
+            "192.168.1.51",
+            "--ssh-key",
+            "/home/vscode/.ssh/id_ed25519",
+            "--tls-san",
+            "192.168.1.50",
+            "--user",
+            "pve"
+        ],
+        "stdout": [
+            "Running: k3sup join",
+            "Joining 192.168.1.52 => 192.168.1.51",
+            "Received node-token from 192.168.1.51.. ok.",
+            "[INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service",
+            "[INFO]  systemd: Enabling k3s unit",
+            "[INFO]  systemd: Starting k3s",
+            "Logs: Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.",
+            "Output: [INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service",
+            "[INFO]  systemd: Enabling k3s unit",
+            "[INFO]  systemd: Starting k3s",
+            "",
+            "🚀 Speed up GitHub Actions/GitLab CI + reduce costs: https://actuated.dev"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.k3sup : Add server to k3s cluster] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/k3sup",
+            "join",
+            "--ip",
+            "192.168.1.53",
+            "--k3s-extra-args",
+            "--disable servicelb",
+            "--k3s-version",
+            "v1.27.11+k3s1",
+            "--server",
+            "--server-ip",
+            "192.168.1.51",
+            "--ssh-key",
+            "/home/vscode/.ssh/id_ed25519",
+            "--tls-san",
+            "192.168.1.50",
+            "--user",
+            "pve"
+        ],
+        "stdout": [
+            "Running: k3sup join",
+            "Joining 192.168.1.53 => 192.168.1.51",
+            "Received node-token from 192.168.1.51.. ok.",
+            "[INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service",
+            "[INFO]  systemd: Enabling k3s unit",
+            "[INFO]  systemd: Starting k3s",
+            "Logs: Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.",
+            "Output: [INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service",
+            "[INFO]  systemd: Enabling k3s unit",
+            "[INFO]  systemd: Starting k3s",
+            "",
+            "🚀 Speed up GitHub Actions/GitLab CI + reduce costs: https://actuated.dev"
+        ]
+    }
+}
+
+TASK [Add workers to cluster] **************************************************
+
+TASK [sysengquick.k3s.k3sup : Add workers to k3s cluster] **********************
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/k3sup/tasks/add_workers_loop.yml for localhost => (item={'name': 'w1.k3s.local.technoplaza.net', 'ip': '192.168.1.54'})
+included: /home/vscode/.ansible/collections/ansible_collections/sysengquick/k3s/roles/k3sup/tasks/add_workers_loop.yml for localhost => (item={'name': 'w2.k3s.local.technoplaza.net', 'ip': '192.168.1.55'})
+
+TASK [sysengquick.k3s.k3sup : Add worker to k3s cluster] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/k3sup",
+            "join",
+            "--ip",
+            "192.168.1.54",
+            "--k3s-version",
+            "v1.27.11+k3s1",
+            "--server-ip",
+            "192.168.1.51",
+            "--ssh-key",
+            "/home/vscode/.ssh/id_ed25519",
+            "--user",
+            "pve"
+        ],
+        "stdout": [
+            "Running: k3sup join",
+            "Joining 192.168.1.54 => 192.168.1.51",
+            "Received node-token from 192.168.1.51.. ok.",
+            "[INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-agent-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s-agent.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s-agent.service",
+            "[INFO]  systemd: Enabling k3s-agent unit",
+            "[INFO]  systemd: Starting k3s-agent",
+            "Logs: Created symlink /etc/systemd/system/multi-user.target.wants/k3s-agent.service → /etc/systemd/system/k3s-agent.service.",
+            "Output: [INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-agent-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s-agent.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s-agent.service",
+            "[INFO]  systemd: Enabling k3s-agent unit",
+            "[INFO]  systemd: Starting k3s-agent",
+            "",
+            "🚀 Speed up GitHub Actions/GitLab CI + reduce costs: https://actuated.dev"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.k3sup : Add worker to k3s cluster] ***********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.k3sup : Display output] **********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/local/bin/k3sup",
+            "join",
+            "--ip",
+            "192.168.1.55",
+            "--k3s-version",
+            "v1.27.11+k3s1",
+            "--server-ip",
+            "192.168.1.51",
+            "--ssh-key",
+            "/home/vscode/.ssh/id_ed25519",
+            "--user",
+            "pve"
+        ],
+        "stdout": [
+            "Running: k3sup join",
+            "Joining 192.168.1.55 => 192.168.1.51",
+            "Received node-token from 192.168.1.51.. ok.",
+            "[INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-agent-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s-agent.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s-agent.service",
+            "[INFO]  systemd: Enabling k3s-agent unit",
+            "[INFO]  systemd: Starting k3s-agent",
+            "Logs: Created symlink /etc/systemd/system/multi-user.target.wants/k3s-agent.service → /etc/systemd/system/k3s-agent.service.",
+            "Output: [INFO]  Using v1.27.11+k3s1 as release",
+            "[INFO]  Downloading hash https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/sha256sum-amd64.txt",
+            "[INFO]  Downloading binary https://github.com/k3s-io/k3s/releases/download/v1.27.11+k3s1/k3s",
+            "[INFO]  Verifying binary download",
+            "[INFO]  Installing k3s to /usr/local/bin/k3s",
+            "[INFO]  Skipping installation of SELinux RPM",
+            "[INFO]  Creating /usr/local/bin/kubectl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/crictl symlink to k3s",
+            "[INFO]  Creating /usr/local/bin/ctr symlink to k3s",
+            "[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh",
+            "[INFO]  Creating uninstall script /usr/local/bin/k3s-agent-uninstall.sh",
+            "[INFO]  env: Creating environment file /etc/systemd/system/k3s-agent.service.env",
+            "[INFO]  systemd: Creating service file /etc/systemd/system/k3s-agent.service",
+            "[INFO]  systemd: Enabling k3s-agent unit",
+            "[INFO]  systemd: Starting k3s-agent",
+            "",
+            "🚀 Speed up GitHub Actions/GitLab CI + reduce costs: https://actuated.dev"
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=14   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+s1.k3s.local.technoplaza.net : ok=13   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+real	0m53.615s
+user	0m6.208s
+sys	0m1.609s
++ ansible-playbook sysengquick.k3s.deploy_rancher
+
+PLAY [Deploy rancher] **********************************************************
+
+TASK [Deploy cert-manager] *****************************************************
+
+TASK [sysengquick.k3s.rancher : Deploy cert-manager with helm] *****************
+changed: [localhost]
+
+TASK [sysengquick.k3s.rancher : Display output] ********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/sbin/helm",
+            "upgrade",
+            "--install",
+            "cert-manager",
+            "jetstack/cert-manager",
+            "--create-namespace",
+            "--namespace",
+            "cert-manager",
+            "--set",
+            "installCRDs=true",
+            "--version",
+            "v1.14.4"
+        ],
+        "stdout": [
+            "Release \"cert-manager\" does not exist. Installing it now.",
+            "NAME: cert-manager",
+            "LAST DEPLOYED: Fri Mar 29 17:36:36 2024",
+            "NAMESPACE: cert-manager",
+            "STATUS: deployed",
+            "REVISION: 1",
+            "TEST SUITE: None",
+            "NOTES:",
+            "cert-manager v1.14.4 has been deployed successfully!",
+            "",
+            "In order to begin issuing certificates, you will need to set up a ClusterIssuer",
+            "or Issuer resource (for example, by creating a 'letsencrypt-staging' issuer).",
+            "",
+            "More information on the different types of issuers and how to configure them",
+            "can be found in our documentation:",
+            "",
+            "https://cert-manager.io/docs/configuration/",
+            "",
+            "For information on how to configure cert-manager to automatically provision",
+            "Certificates for Ingress resources, take a look at the `ingress-shim`",
+            "documentation:",
+            "",
+            "https://cert-manager.io/docs/usage/ingress/"
+        ]
+    }
+}
+
+TASK [Deploy rancher] **********************************************************
+
+TASK [sysengquick.k3s.rancher : Deploy rancher with helm] **********************
+changed: [localhost]
+
+TASK [sysengquick.k3s.rancher : Display output] ********************************
+ok: [localhost] => {
+    "msg": {
+        "cmd": [
+            "/usr/sbin/helm",
+            "upgrade",
+            "--install",
+            "rancher",
+            "rancher-stable/rancher",
+            "--create-namespace",
+            "--namespace",
+            "cattle-system",
+            "--set",
+            "bootstrapPassword=AReallyGoodP@ssw0rd",
+            "--set",
+            "hostname=rancher.k3s.local.technoplaza.net",
+            "--set",
+            "replicas=3",
+            "--version",
+            "2.8.2"
+        ],
+        "stdout": [
+            "Release \"rancher\" does not exist. Installing it now.",
+            "NAME: rancher",
+            "LAST DEPLOYED: Fri Mar 29 17:36:55 2024",
+            "NAMESPACE: cattle-system",
+            "STATUS: deployed",
+            "REVISION: 1",
+            "TEST SUITE: None",
+            "NOTES:",
+            "Rancher Server has been installed.",
+            "",
+            "NOTE: Rancher may take several minutes to fully initialize. Please standby while Certificates are being issued, Containers are started and the Ingress rule comes up.",
+            "",
+            "Check out our docs at https://rancher.com/docs/",
+            "",
+            "If you provided your own bootstrap password during installation, browse to https://rancher.k3s.local.technoplaza.net to get started.",
+            "",
+            "If this is the first time you installed Rancher, get started by running this command and clicking the URL it generates:",
+            "",
+            "```",
+            "echo https://rancher.k3s.local.technoplaza.net/dashboard/?setup=$(kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{.data.bootstrapPassword|base64decode}}')",
+            "```",
+            "",
+            "To get just the bootstrap password on its own, run:",
+            "",
+            "```",
+            "kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{.data.bootstrapPassword|base64decode}}{{ \"\\n\" }}'",
+            "```",
+            "",
+            "",
+            "Happy Containering!"
+        ]
+    }
+}
+
+TASK [sysengquick.k3s.rancher : Expose rancher load balancer service] **********
+skipping: [localhost]
+
+TASK [sysengquick.k3s.rancher : Display output] ********************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+
+real	0m22.512s
+user	0m5.658s
+sys	0m0.871s
++ kubectl -n cattle-system rollout status deploy/rancher
+Waiting for deployment "rancher" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment spec update to be observed...
+Waiting for deployment "rancher" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment "rancher" rollout to finish: 1 of 3 updated replicas are available...
+Waiting for deployment "rancher" rollout to finish: 2 of 3 updated replicas are available...
+deployment "rancher" successfully rolled out
+
+real	1m10.728s
+user	0m0.156s
+sys	0m0.028s
++ kubectl get nodes -o wide
+NAME   STATUS   ROLES                       AGE     VERSION         INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
+s1     Ready    control-plane,etcd,master   2m18s   v1.27.11+k3s1   192.168.1.51   <none>        Ubuntu 22.04.4 LTS   5.15.0-1053-kvm   containerd://1.7.11-k3s2.27
+s2     Ready    control-plane,etcd,master   117s    v1.27.11+k3s1   192.168.1.52   <none>        Ubuntu 22.04.4 LTS   5.15.0-1053-kvm   containerd://1.7.11-k3s2.27
+s3     Ready    control-plane,etcd,master   106s    v1.27.11+k3s1   192.168.1.53   <none>        Ubuntu 22.04.4 LTS   5.15.0-1053-kvm   containerd://1.7.11-k3s2.27
+w1     Ready    <none>                      100s    v1.27.11+k3s1   192.168.1.54   <none>        Ubuntu 22.04.4 LTS   5.15.0-1053-kvm   containerd://1.7.11-k3s2.27
+w2     Ready    <none>                      94s     v1.27.11+k3s1   192.168.1.55   <none>        Ubuntu 22.04.4 LTS   5.15.0-1053-kvm   containerd://1.7.11-k3s2.27
++ kubectl get pods --all-namespaces -o wide
+NAMESPACE                         NAME                                       READY   STATUS      RESTARTS   AGE    IP             NODE   NOMINATED NODE   READINESS GATES
+cattle-fleet-system               fleet-controller-6fc8c65685-cmqt6          1/1     Running     0          102m   10.42.3.4      w1     <none>           <none>
+cattle-fleet-system               gitjob-6c8875d84d-fv2mp                    1/1     Running     0          102m   10.42.1.3      s2     <none>           <none>
+cattle-provisioning-capi-system   capi-controller-manager-79ddf9b9d8-f7cq4   1/1     Running     0          100m   10.42.4.8      w2     <none>           <none>
+cattle-system                     helm-operation-nrwh4                       0/2     Completed   0          85s    10.42.2.8      s3     <none>           <none>
+cattle-system                     rancher-7bcd45c474-qzcjl                   1/1     Running     0          103m   10.42.2.3      s3     <none>           <none>
+cattle-system                     rancher-7bcd45c474-tc8w8                   1/1     Running     0          103m   10.42.1.2      s2     <none>           <none>
+cattle-system                     rancher-7bcd45c474-ztwq2                   1/1     Running     0          103m   10.42.4.4      w2     <none>           <none>
+cattle-system                     rancher-webhook-7476c74c6c-6z5n5           1/1     Running     0          101m   10.42.4.7      w2     <none>           <none>
+cert-manager                      cert-manager-5f8646db6b-tdbp4              1/1     Running     0          103m   10.42.3.3      w1     <none>           <none>
+cert-manager                      cert-manager-cainjector-5cf5f57dd7-66bnh   1/1     Running     0          103m   10.42.3.2      w1     <none>           <none>
+cert-manager                      cert-manager-webhook-687b7f8b97-rb8tv      1/1     Running     0          103m   10.42.4.2      w2     <none>           <none>
+kube-system                       coredns-77ccd57875-fgz4g                   1/1     Running     0          104m   10.42.0.6      s1     <none>           <none>
+kube-system                       helm-install-traefik-crd-zm2cw             0/1     Completed   0          104m   10.42.0.5      s1     <none>           <none>
+kube-system                       helm-install-traefik-rxx5r                 0/1     Completed   2          104m   10.42.0.2      s1     <none>           <none>
+kube-system                       kube-vip-cloud-provider-578d9b7bf7-c5pp4   1/1     Running     0          104m   10.42.0.7      s1     <none>           <none>
+kube-system                       kube-vip-ds-547ps                          1/1     Running     0          103m   192.168.1.53   s3     <none>           <none>
+kube-system                       kube-vip-ds-67z2p                          1/1     Running     0          104m   192.168.1.51   s1     <none>           <none>
+kube-system                       kube-vip-ds-nbkmr                          1/1     Running     0          104m   192.168.1.52   s2     <none>           <none>
+kube-system                       local-path-provisioner-79ffd768b5-b6x9r    1/1     Running     0          104m   10.42.0.4      s1     <none>           <none>
+kube-system                       metrics-server-648b5df564-mk4jq            1/1     Running     0          104m   10.42.0.3      s1     <none>           <none>
+kube-system                       traefik-768bdcdcdd-klkjm                   1/1     Running     0          103m   10.42.2.2      s3     <none>           <none>
++ kubectl -n cattle-system get deploy rancher
+NAME      READY   UP-TO-DATE   AVAILABLE   AGE
+rancher   3/3     3            3           72s
+
+real    5m26.746s
+user    0m41.468s
+sys     0m8.960s
