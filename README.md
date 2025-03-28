@@ -453,9 +453,3 @@ After you've gone through the defaults, run the deploy_rancher playbook.
 ```sh
 ansible-playbook sysengquick.k3s.deploy_rancher
 ```
-
-## Additional Resources
-
-Check out the YouTube playlist in the YouTube Series link at the top.
-
-If you need help or something isn't working, file an issue on the github repo.
